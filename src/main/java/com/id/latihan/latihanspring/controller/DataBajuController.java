@@ -16,7 +16,7 @@ import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.security.services.DataBajuService;
 
-@CrossOrigin(origins = "http://localhost:8022/")
+@CrossOrigin(origins = "https://app-125se-backend.herokuapp.com/")
 @RestController
 @RequestMapping("/baju")
 public class DataBajuController {

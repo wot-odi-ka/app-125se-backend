@@ -18,7 +18,7 @@ import com.id.latihan.latihanspring.model.DataCustomer;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.security.services.DataCustomerService;
 
-@CrossOrigin(origins = "http://localhost:8022/")
+@CrossOrigin(origins = "https://app-125se-backend.herokuapp.com/")
 @RestController
 @RequestMapping("/customer")
 public class DataCustomerController {
