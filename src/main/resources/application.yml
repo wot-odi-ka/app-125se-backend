@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/cb125_se
+    driver-class-name:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  server:
+    port: $PORT
