@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.id.latihan.latihanspring.dto.DataBajuDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 
@@ -16,9 +17,17 @@ public class DataBajuService {
     private DataBajuRepository repository;
 
 
-    public DataBaju saveDataBaju(DataBaju data){
+    public DataBaju saveDataBaju(DataBajuDto data){
+        DataBaju dbBaju = new DataBaju();
 
-        return repository.save(data);
+            dbBaju.setId(data.getId());
+            dbBaju.setHargaBaju(data.getHargaBaju());
+            dbBaju.setJenisBaju(data.getJenisBaju());
+            dbBaju.setNamaBaju(data.getNamaBaju());
+            dbBaju.setUkuranBaju(data.getUkuranBaju());
+            dbBaju.setWarnaBaju(data.getJenisBaju());
+            return repository.save(dbBaju);
+      
     }
 
     public DataBaju SearchByid(long id){
@@ -29,5 +38,7 @@ public class DataBajuService {
 
         return repository.findAll();
     }
+
+
     
 }

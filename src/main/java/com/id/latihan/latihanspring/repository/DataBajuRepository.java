@@ -7,5 +7,6 @@ import com.id.latihan.latihanspring.model.DataBaju;
 
 @Repository
 public interface DataBajuRepository extends JpaRepository<DataBaju , Long> {
+
     
 }

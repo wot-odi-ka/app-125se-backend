@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.id.latihan.latihanspring.dto.DataBajuDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.security.services.DataBajuService;
@@ -24,11 +24,11 @@ public class DataBajuController {
     @Autowired
     private DataBajuService service;
 
-
     @PostMapping("/add")
-    public ResponseEntity<?> addDataBaju(@RequestBody DataBaju data){
-        service.saveDataBaju(data);
-        return ResponseEntity.ok(new MessageResponse("Success insert Data to Db"));
+    public ResponseEntity<?> addDataBaju(@RequestBody DataBajuDto data){
+            service.saveDataBaju(data);
+            return ResponseEntity.ok(new MessageResponse("Success insert Data to Db"));
+       
     }
 
     @GetMapping("/search/{id}")
@@ -40,5 +40,10 @@ public class DataBajuController {
     public List<DataBaju> gList(){
         return service.getDataAll();
     }
+
+    // @DeleteMapping("{id}")
+    // public ResponseEntity<?> deleResponseEntity(Long id){
+    //     service
+    // }
     
 }
