@@ -54,4 +54,21 @@ public class DataCustomerService {
 
          return "remove data " +id;
     }
+
+    public DataCustomer updCustomer(DataCustomerDto customer){
+        DataBaju baju = bajuRepository.findById(customer.getId_Databaju()).orElse(null);
+        DataCustomer data = repository.findById(customer.getId()).orElse(null);
+        data.setNama(customer.getNama());
+        data.setAlamat(customer.getAlamat());
+        data.setGender(customer.getGender());
+        data.setJumlahBaju(customer.getJumlahBaju());
+        data.setNoHp(customer.getNoHp());
+        baju.setId(customer.getId_Databaju());
+        data.setDataBaju(baju);
+        data.setJumlahBaju(customer.getJumlahBaju());
+        int total = baju.getHargaBaju() * data.getJumlahBaju();
+        data.setTotalHarga(total);  
+
+        return repository.save(data);
+    }
 }

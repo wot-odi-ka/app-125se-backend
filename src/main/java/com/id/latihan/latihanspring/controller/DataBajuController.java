@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,9 +42,10 @@ public class DataBajuController {
         return service.getDataAll();
     }
 
-    // @DeleteMapping("{id}")
-    // public ResponseEntity<?> deleResponseEntity(Long id){
-    //     service
-    // }
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleResponseEntity(@PathVariable Long id){
+        service.deletDatabajuById(id);
+        return ResponseEntity.ok(new MessageResponse("Success Delete Data Id "+id));
+    }
     
 }

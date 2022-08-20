@@ -39,6 +39,12 @@ public class DataBajuService {
         return repository.findAll();
     }
 
+    public String deletDatabajuById(Long id){
+        repository.deleteById(id);
+
+        return "remove data " +id;
+   }
+
 
     
 }

@@ -51,10 +51,15 @@ public class DataCustomerController {
         return service.searchByname(nama);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> dEntity(@PathVariable Long id){
         service.deletDatabajuById(id);
         return ResponseEntity.ok(new MessageResponse("delete data customer success" +id));
     }
-    
+
+    @PostMapping("/update")
+    public ResponseEntity<?> updaEntity(@RequestBody DataCustomerDto customerDto){
+        service.updCustomer(customerDto);
+        return ResponseEntity.ok(new MessageResponse("success update data"));
+    }
 }
