@@ -1,7 +1,6 @@
 package com.id.latihan.latihanspring.security.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +46,10 @@ public class DataCustomerService {
 
     public List<DataCustomer> searchByname(String nama){
         return repository.findByName(nama);
+    }
+
+    public List<DataCustomer> searchBywarnaBaju(String warna){
+        return repository.findByWarnaBaju(warna);
     }
 
     public String deletDatabajuById(Long id){

@@ -2,6 +2,8 @@ package com.id.latihan.latihanspring.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,14 +28,14 @@ public class DataBajuController {
     private DataBajuService service;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addDataBaju(@RequestBody DataBajuDto data){
+    public ResponseEntity<?> addDataBaju(@Valid @RequestBody DataBajuDto data){
             service.saveDataBaju(data);
             return ResponseEntity.ok(new MessageResponse("Success insert Data to Db"));
        
     }
 
     @GetMapping("/search/{id}")
-    public DataBaju searchId(@PathVariable long id){
+    public DataBaju searchId(@Valid @PathVariable long id){
         return service.SearchByid(id);
     }
 

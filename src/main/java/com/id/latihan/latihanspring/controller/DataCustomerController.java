@@ -51,6 +51,11 @@ public class DataCustomerController {
         return service.searchByname(nama);
     }
 
+    @GetMapping("/search/warna")
+    public List<DataCustomer> getDataByWarna(@RequestParam String warna){
+        return service.searchBywarnaBaju(warna);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> dEntity(@PathVariable Long id){
         service.deletDatabajuById(id);

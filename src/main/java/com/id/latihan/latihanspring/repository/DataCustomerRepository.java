@@ -15,5 +15,8 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
 
     @Query(value = "select * from customer a where a.nama like %:nama%", nativeQuery = true)
     List<DataCustomer> findByName(@Param("nama") String nama);
+
+    @Query(value = "select * from customer b join baju a on a.id = b.id_databaju where a.warna_baju like %:warna%", nativeQuery = true)
+    List<DataCustomer> findByWarnaBaju(@Param("warna") String warna);
     
 }
