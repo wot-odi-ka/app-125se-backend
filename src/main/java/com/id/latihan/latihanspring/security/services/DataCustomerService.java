@@ -65,6 +65,10 @@ public class DataCustomerService {
         return repository.totalBajuTerjual();
     }
 
+    public long searchByTotaPendapatan(){
+        return repository.totalPendapatan();
+    }
+
     public List<DataCustomer> searchBywarnaBaju(String warna){
         return repository.findByWarnaBaju(warna);
     }

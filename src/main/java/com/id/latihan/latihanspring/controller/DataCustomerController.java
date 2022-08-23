@@ -74,6 +74,11 @@ public class DataCustomerController {
         return service.searchByTotalbaju();
     }
 
+    @GetMapping("/search/totalPendapatan")
+    public long getDataByTotalpendapatan(){
+        return service.searchByTotaPendapatan();
+    }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> dEntity(@PathVariable Long id){
