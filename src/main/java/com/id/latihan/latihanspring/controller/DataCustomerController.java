@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.model.DataCustomer;
+import com.id.latihan.latihanspring.payload.response.DataBajuResponse;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.security.services.DataCustomerService;
 
@@ -56,6 +57,24 @@ public class DataCustomerController {
         return service.searchBywarnaBaju(warna);
     }
 
+    @GetMapping("/search/hitam")
+    public long getDataByWarnaHitam(@RequestParam String hitam){
+        return service.searchBywarnaBajuHitam(hitam);
+    }
+    @GetMapping("/search/hijau")
+    public long getDataByWarnaHijau(@RequestParam String hijau){
+        return service.searchBywarnaBajuHijau(hijau);
+    }
+    @GetMapping("/search/putih")
+    public long getDataByWarnaPutih(@RequestParam String putih){
+        return service.searchBywarnaBajuPutih(putih);
+    }
+    @GetMapping("/search/total")
+    public long getDataByWarnaTotal(){
+        return service.searchByTotalbaju();
+    }
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> dEntity(@PathVariable Long id){
         service.deletDatabajuById(id);
@@ -67,4 +86,6 @@ public class DataCustomerController {
         service.updCustomer(customerDto);
         return ResponseEntity.ok(new MessageResponse("success update data"));
     }
+
+
 }

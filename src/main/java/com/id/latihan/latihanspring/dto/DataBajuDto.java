@@ -26,4 +26,6 @@ public class DataBajuDto {
 
     private String jenisBaju;
 
+    private String totalBaju;
+
 }

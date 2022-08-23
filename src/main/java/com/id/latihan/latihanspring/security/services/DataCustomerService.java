@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
+import com.id.latihan.latihanspring.payload.response.DataBajuResponse;
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 import com.id.latihan.latihanspring.repository.DataCustomerRepository;
 
@@ -48,9 +49,27 @@ public class DataCustomerService {
         return repository.findByName(nama);
     }
 
+    public long searchBywarnaBajuHitam(String hitam){
+        return repository.findByWarnaBajuHitam(hitam);
+    }
+
+    public long searchBywarnaBajuPutih(String putih){
+        return repository.findByWarnaBajuPutih(putih);
+    }
+
+    public long searchBywarnaBajuHijau(String hijau){
+        return repository.findByWarnaBajuHijau(hijau);
+    }
+
+    public long searchByTotalbaju(){
+        return repository.totalBajuTerjual();
+    }
+
     public List<DataCustomer> searchBywarnaBaju(String warna){
         return repository.findByWarnaBaju(warna);
     }
+
+
 
     public String deletDatabajuById(Long id){
          repository.deleteById(id);

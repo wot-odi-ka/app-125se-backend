@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.id.latihan.latihanspring.model.DataCustomer;
+import com.id.latihan.latihanspring.payload.response.DataBajuResponse;
 
 
 @Repository
@@ -18,5 +19,19 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
 
     @Query(value = "select * from customer b join baju a on a.id = b.id_databaju where a.warna_baju like %:warna%", nativeQuery = true)
     List<DataCustomer> findByWarnaBaju(@Param("warna") String warna);
+
+    @Query(value = "select sum(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju", nativeQuery = true)
+    Long totalBajuTerjual();
+
+    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hitam%", nativeQuery = true)
+    long findByWarnaBajuHitam(@Param("hitam") String hitam);
+
+    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:putih%", nativeQuery = true)
+    long findByWarnaBajuPutih(@Param("putih") String putih);
+
+    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hijau%", nativeQuery = true)
+    long findByWarnaBajuHijau(@Param("hijau") String hijau);
+
+
     
 }
