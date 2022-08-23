@@ -20,16 +20,16 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
     @Query(value = "select * from customer b join baju a on a.id = b.id_databaju where a.warna_baju like %:warna%", nativeQuery = true)
     List<DataCustomer> findByWarnaBaju(@Param("warna") String warna);
 
-    @Query(value = "select sum(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju", nativeQuery = true)
+    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju", nativeQuery = true)
     Long totalBajuTerjual();
 
-    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hitam%", nativeQuery = true)
+    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hitam%", nativeQuery = true)
     long findByWarnaBajuHitam(@Param("hitam") String hitam);
 
-    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:putih%", nativeQuery = true)
+    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:putih%", nativeQuery = true)
     long findByWarnaBajuPutih(@Param("putih") String putih);
 
-    @Query(value = "select count(b.jumlah_baju) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hijau%", nativeQuery = true)
+    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hijau%", nativeQuery = true)
     long findByWarnaBajuHijau(@Param("hijau") String hijau);
 
 
