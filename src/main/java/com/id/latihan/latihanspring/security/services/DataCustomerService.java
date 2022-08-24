@@ -32,8 +32,16 @@ public class DataCustomerService {
         baju.setId(data.getId_Databaju());
         customer.setDataBaju(baju);
         customer.setJumlahBaju(data.getJumlahBaju());
-        int total = baju.getHargaBaju() * customer.getJumlahBaju();
-        customer.setTotalHarga(total);  
+        if(customer.getJumlahBaju() >= 5 && customer.getJumlahBaju() < 12){
+            int discond5 = baju.getHargaBaju() - 15000;
+            int total = discond5 * customer.getJumlahBaju();
+            customer.setTotalHarga(total); 
+        }else if(customer.getJumlahBaju() >=12){
+            int discond12 = baju.getHargaBaju() - 15000;
+            int total = discond12 * customer.getJumlahBaju();
+            customer.setTotalHarga(total); 
+        }
+        // int total = baju.getHargaBaju() * customer.getJumlahBaju();
         return repository.save(customer);
     }
 
