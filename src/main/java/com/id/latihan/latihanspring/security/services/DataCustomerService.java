@@ -40,8 +40,14 @@ public class DataCustomerService {
             int discond12 = baju.getHargaBaju() - 15000;
             int total = discond12 * customer.getJumlahBaju();
             customer.setTotalHarga(total); 
+        }else if(customer.getJumlahBaju() <= 4){
+            int total = baju.getHargaBaju() * customer.getJumlahBaju();
+
+            customer.setTotalHarga(total); 
         }
-        // int total = baju.getHargaBaju() * customer.getJumlahBaju();
+
+        
+
         return repository.save(customer);
     }
 
