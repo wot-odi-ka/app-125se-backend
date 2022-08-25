@@ -37,7 +37,7 @@ public class DataCustomerService {
             int total = discond5 * customer.getJumlahBaju();
             customer.setTotalHarga(total); 
         }else if(customer.getJumlahBaju() >=12){
-            int discond12 = baju.getHargaBaju() - 15000;
+            int discond12 = baju.getHargaBaju() - 25000;
             int total = discond12 * customer.getJumlahBaju();
             customer.setTotalHarga(total); 
         }else if(customer.getJumlahBaju() <= 4){
@@ -96,8 +96,8 @@ public class DataCustomerService {
     }
 
     public DataCustomer updCustomer(DataCustomerDto customer){
-        DataBaju baju = bajuRepository.findById(customer.getId_Databaju()).orElse(null);
         DataCustomer data = repository.findById(customer.getId()).orElse(null);
+        DataBaju baju = bajuRepository.findById(customer.getId_Databaju()).orElse(null);
         data.setNama(customer.getNama());
         data.setAlamat(customer.getAlamat());
         data.setGender(customer.getGender());
@@ -106,8 +106,19 @@ public class DataCustomerService {
         baju.setId(customer.getId_Databaju());
         data.setDataBaju(baju);
         data.setJumlahBaju(customer.getJumlahBaju());
-        int total = baju.getHargaBaju() * data.getJumlahBaju();
-        data.setTotalHarga(total);  
+        if(data.getJumlahBaju() >= 5 && data.getJumlahBaju() < 12){
+            int discond5 = baju.getHargaBaju() - 15000;
+            int total = discond5 * data.getJumlahBaju();
+            data.setTotalHarga(total); 
+        }else if(data.getJumlahBaju() >=12){
+            int discond12 = baju.getHargaBaju() - 25000;
+            int total = discond12 * data.getJumlahBaju();
+            data.setTotalHarga(total); 
+        }else if(data.getJumlahBaju() <= 4){
+            int total = baju.getHargaBaju() * data.getJumlahBaju();
+
+            data.setTotalHarga(total); 
+        }  
 
         return repository.save(data);
     }
