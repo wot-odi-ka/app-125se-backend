@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.id.latihan.latihanspring.common.CommonEntity;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "customer")
-public class DataCustomer {
+public class DataCustomer extends CommonEntity{
 
     @Id
    

@@ -23,5 +23,7 @@ public class DataCustomerDto {
 
     private int jumlahBaju;
 
+    private String username;
+
     
 }

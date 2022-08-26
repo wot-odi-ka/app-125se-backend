@@ -1,5 +1,6 @@
 package com.id.latihan.latihanspring.security.services;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
-import com.id.latihan.latihanspring.payload.response.DataBajuResponse;
+import com.id.latihan.latihanspring.payload.request.SignupRequest;
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 import com.id.latihan.latihanspring.repository.DataCustomerRepository;
 
@@ -45,6 +46,8 @@ public class DataCustomerService {
 
             customer.setTotalHarga(total); 
         }
+            customer.setCreatedDt(new Timestamp(System.currentTimeMillis()));
+            customer.setCreatedBy(data.getUsername());
 
         
 
@@ -119,6 +122,8 @@ public class DataCustomerService {
 
             data.setTotalHarga(total); 
         }  
+        data.setChangedDt(new Timestamp(System.currentTimeMillis()));
+        data.setChangedBy(customer.getUsername());
 
         return repository.save(data);
     }
