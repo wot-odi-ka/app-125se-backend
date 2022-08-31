@@ -62,7 +62,7 @@ public class DataCustomerService {
     }
 
     public List<DataCustomer> gCustomers(){
-        return repository.findAll();
+        return repository. DataCustomerList();
     }
 
     public List<DataCustomer> searchByname(String nama){
