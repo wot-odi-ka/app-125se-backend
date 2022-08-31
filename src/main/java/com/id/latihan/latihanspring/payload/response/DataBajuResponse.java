@@ -7,6 +7,13 @@ import lombok.Setter;
 @Getter
 public class DataBajuResponse {
 
-    private String total;
+    private Long total;
+    private String ukuran;
+
+    public DataBajuResponse(String ukuran,long total) {
+	    this.ukuran = ukuran;
+        this.total = total;
+	  }
+
     
 }

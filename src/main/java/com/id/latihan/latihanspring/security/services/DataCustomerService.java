@@ -1,15 +1,18 @@
 package com.id.latihan.latihanspring.security.services;
 
 import java.sql.Timestamp;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
+import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
-import com.id.latihan.latihanspring.payload.request.SignupRequest;
+
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 import com.id.latihan.latihanspring.repository.DataCustomerRepository;
 
@@ -84,6 +87,9 @@ public class DataCustomerService {
 
     public long searchByTotaPendapatan(){
         return repository.totalPendapatan();
+    }
+    public List <DataUkuranBajuDto> serchByUkuranBajuPanjang(String warna,String jenis){
+        return repository.totalUkuranBajuHitamPanajang(warna, jenis);
     }
 
     public List<DataCustomer> searchBywarnaBaju(String warna){

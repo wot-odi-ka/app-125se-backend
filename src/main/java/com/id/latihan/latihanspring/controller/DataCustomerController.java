@@ -1,5 +1,6 @@
 package com.id.latihan.latihanspring.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
+import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
+
 import com.id.latihan.latihanspring.model.DataCustomer;
-import com.id.latihan.latihanspring.payload.response.DataBajuResponse;
+
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.security.services.DataCustomerService;
 
@@ -79,6 +83,12 @@ public class DataCustomerController {
         return service.searchByTotaPendapatan();
     }
 
+    @GetMapping("/ukuran")
+    public List <DataUkuranBajuDto> searchByUkuranPanjang(@RequestParam String warna,String jenis){
+         return service.serchByUkuranBajuPanjang(warna, jenis);
+        
+    }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> dEntity(@PathVariable Long id){
@@ -91,6 +101,7 @@ public class DataCustomerController {
         service.updCustomer(customerDto);
         return ResponseEntity.ok(new MessageResponse("success update data"));
     }
+
 
 
 }

@@ -25,7 +25,7 @@ public class DataBajuService {
             dbBaju.setJenisBaju(data.getJenisBaju());
             dbBaju.setNamaBaju(data.getNamaBaju());
             dbBaju.setUkuranBaju(data.getUkuranBaju());
-            dbBaju.setWarnaBaju(data.getJenisBaju());
+            dbBaju.setWarnaBaju(data.getWarnaBaju());
             return repository.save(dbBaju);
       
     }
