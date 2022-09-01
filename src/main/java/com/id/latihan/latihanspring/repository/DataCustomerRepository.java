@@ -40,6 +40,6 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
     @Query(value = "select a.ukuran_baju ,coalesce(sum(b.jumlah_baju),0) as jumlah_baju from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:warna% and a.jenis_baju like %:jenis% group by a.ukuran_baju", nativeQuery = true)
     List <DataUkuranBajuDto> totalUkuranBajuHitamPanajang(@Param("warna") String warna,@Param("jenis") String jenis);
     
-    @Query(value = "select * from customer c order by c.created_dt asc ", nativeQuery = true)
+    @Query(value = "select * from customer c order by c.created_dt desc ", nativeQuery = true)
     List<DataCustomer> DataCustomerList();
 }
