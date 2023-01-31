@@ -77,8 +77,8 @@ public class DataCustomerService {
         return repository.findByWarnaBajuPutih(putih);
     }
 
-    public long searchBywarnaBajuHijau(String hijau){
-        return repository.findByWarnaBajuHijau(hijau);
+    public long searchBywarnaBajuHijau(String biru){
+        return repository.findByWarnaBajuHijau(biru);
     }
 
     public long searchByTotalbaju(){

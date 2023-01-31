@@ -65,9 +65,9 @@ public class DataCustomerController {
     public long getDataByWarnaHitam(@RequestParam String hitam){
         return service.searchBywarnaBajuHitam(hitam);
     }
-    @GetMapping("/search/hijau")
-    public long getDataByWarnaHijau(@RequestParam String hijau){
-        return service.searchBywarnaBajuHijau(hijau);
+    @GetMapping("/search/biru")
+    public long getDataByWarnaHijau(@RequestParam String biru){
+        return service.searchBywarnaBajuHijau(biru);
     }
     @GetMapping("/search/putih")
     public long getDataByWarnaPutih(@RequestParam String putih){

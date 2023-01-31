@@ -31,8 +31,8 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
     @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:putih%", nativeQuery = true)
     long findByWarnaBajuPutih(@Param("putih") String putih);
 
-    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:hijau%", nativeQuery = true)
-    long findByWarnaBajuHijau(@Param("hijau") String hijau);
+    @Query(value = "select coalesce(sum(b.jumlah_baju),0) as jumlah_baju  from customer b join baju a on a.id =b.id_databaju where a.warna_baju like %:biru%", nativeQuery = true)
+    long findByWarnaBajuHijau(@Param("biru") String biru);
 
     @Query(value = "select coalesce(sum(b.total_harga),0) as totalHarga  from customer b join baju a on a.id =b.id_databaju", nativeQuery = true)
     long totalPendapatan();
