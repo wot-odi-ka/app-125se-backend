@@ -48,6 +48,7 @@ public class DataBajuController {
     public ResponseEntity<?> deleResponseEntity(@PathVariable Long id){
         service.deletDatabajuById(id);
         return ResponseEntity.ok(new MessageResponse("Success Delete Data Id "+id));
+        
     }
     
 }

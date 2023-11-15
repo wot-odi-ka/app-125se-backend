@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
+import com.id.latihan.latihanspring.dto.ResponseStatusDTO;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
-
+import com.id.latihan.latihanspring.model.StatusLog;
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 import com.id.latihan.latihanspring.repository.DataCustomerRepository;
+import com.id.latihan.latihanspring.repository.StatusLogReppo;
 
 @Service
 public class DataCustomerService {
@@ -24,6 +26,26 @@ public class DataCustomerService {
 
     @Autowired
     private DataBajuRepository bajuRepository;
+
+    @Autowired
+    private StatusLogReppo statusLogReppo;
+
+
+public StatusLog saveStatus(ResponseStatusDTO dto){
+    StatusLog sLog = new StatusLog();
+    sLog.setSourceId(dto.getSourceId());
+    sLog.setMessage(dto.getMessage());
+    sLog.setDataList(dto.getDataList());
+    sLog.setStatusId(dto.getStatusId());
+    sLog.setFileinputId(dto.getFileinputId());
+    sLog.setSendDate(dto.getSendDate());
+    sLog.setStartDate(dto.getStartDate());
+    sLog.setStatus(dto.getStatus());
+
+    return statusLogReppo.save(sLog);
+
+}
+
 
 
     public DataCustomer addDataCustomer(DataCustomerDto data){

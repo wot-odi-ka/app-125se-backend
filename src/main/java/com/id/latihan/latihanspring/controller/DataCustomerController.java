@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
-
+import com.id.latihan.latihanspring.dto.ResponseStatusDTO;
 import com.id.latihan.latihanspring.model.DataCustomer;
 
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
@@ -100,6 +100,12 @@ public class DataCustomerController {
     @PostMapping("/update")
     public ResponseEntity<?> updaEntity(@RequestBody DataCustomerDto customerDto){
         service.updCustomer(customerDto);
+        return ResponseEntity.ok(new MessageResponse("success update data"));
+    }
+
+    @PostMapping("/save/status")
+     public ResponseEntity<?> savEntity(@RequestBody ResponseStatusDTO customerDto){
+        service.saveStatus(customerDto);
         return ResponseEntity.ok(new MessageResponse("success update data"));
     }
 
