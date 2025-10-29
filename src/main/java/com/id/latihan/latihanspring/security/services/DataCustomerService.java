@@ -27,25 +27,6 @@ public class DataCustomerService {
     @Autowired
     private DataBajuRepository bajuRepository;
 
-    @Autowired
-    private StatusLogReppo statusLogReppo;
-
-
-public StatusLog saveStatus(ResponseStatusDTO dto){
-    StatusLog sLog = new StatusLog();
-    sLog.setSourceId(dto.getSourceId());
-    sLog.setMessage(dto.getMessage());
-    sLog.setDataList(dto.getDataList());
-    sLog.setStatusId(dto.getStatusId());
-    sLog.setFileinputId(dto.getFileinputId());
-    sLog.setSendDate(dto.getSendDate());
-    sLog.setStartDate(dto.getStartDate());
-    sLog.setStatus(dto.getStatus());
-
-    return statusLogReppo.save(sLog);
-
-}
-
 
 
     public DataCustomer addDataCustomer(DataCustomerDto data){
