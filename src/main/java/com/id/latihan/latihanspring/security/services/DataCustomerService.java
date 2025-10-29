@@ -10,13 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
-import com.id.latihan.latihanspring.dto.ResponseStatusDTO;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
-import com.id.latihan.latihanspring.model.StatusLog;
 import com.id.latihan.latihanspring.repository.DataBajuRepository;
 import com.id.latihan.latihanspring.repository.DataCustomerRepository;
-import com.id.latihan.latihanspring.repository.StatusLogReppo;
 
 @Service
 public class DataCustomerService {
