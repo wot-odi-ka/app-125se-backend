@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
+import com.id.latihan.latihanspring.dto.DataTotalUkuranBajuDTO;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
 import com.id.latihan.latihanspring.model.DataCustomer;
 
@@ -100,6 +101,11 @@ public class DataCustomerController {
     public ResponseEntity<?> updaEntity(@RequestBody DataCustomerDto customerDto){
         service.updCustomer(customerDto);
         return ResponseEntity.ok(new MessageResponse("success update data"));
+    }
+
+     @GetMapping("/get/total/size")
+    public List<DataTotalUkuranBajuDTO> totalUkuranSizeBaju(){
+        return service.totalUkuranBaju();
     }
 
 }

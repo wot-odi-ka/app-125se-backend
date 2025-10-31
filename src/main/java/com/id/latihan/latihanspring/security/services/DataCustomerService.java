@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.id.latihan.latihanspring.dto.DataCustomerDto;
+import com.id.latihan.latihanspring.dto.DataTotalUkuranBajuDTO;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
 import com.id.latihan.latihanspring.model.DataBaju;
 import com.id.latihan.latihanspring.model.DataCustomer;
@@ -94,6 +95,10 @@ public class DataCustomerService {
 
     public List<DataCustomer> searchBywarnaBaju(String warna){
         return repository.findByWarnaBaju(warna);
+    }
+
+     public List<DataTotalUkuranBajuDTO> totalUkuranBaju(){
+        return repository.getTotalUkuranBajuList();
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.id.latihan.latihanspring.dto.DataTotalUkuranBajuDTO;
 import com.id.latihan.latihanspring.dto.DataUkuranBajuDto;
 import com.id.latihan.latihanspring.model.DataCustomer;
 
@@ -42,4 +43,7 @@ public interface DataCustomerRepository extends JpaRepository<DataCustomer,Long>
     
     @Query(value = "select * from customer c order by c.created_dt desc ", nativeQuery = true)
     List<DataCustomer> DataCustomerList();
+
+    @Query(value = "SELECT a.ukuran_baju AS ukuran_baju,a.jenis_baju AS jenis_baju,COALESCE(SUM(b.jumlah_baju), 0) AS jumlah_baju FROM customer b JOIN baju a ON a.id = b.id_databaju GROUP BY a.ukuran_baju, a.jenis_baju ORDER BY a.ukuran_baju", nativeQuery = true)
+    List<DataTotalUkuranBajuDTO> getTotalUkuranBajuList();
 }
