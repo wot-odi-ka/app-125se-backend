@@ -2,7 +2,7 @@ spring:
   datasource:
     username: postgres
     password: tNJJAGzmccKZAWPOQQMwcubBxTGcDUQB
-    url: jdbc:postgresql://postgres:tNJJAGzmccKZAWPOQQMwcubBxTGcDUQB@tramway.proxy.rlwy.net:33652/railway
+    url: jdbc:postgresql://tramway.proxy.rlwy.net:33652/railway
     driver-class-name:
   jpa:
     show-sql: true
