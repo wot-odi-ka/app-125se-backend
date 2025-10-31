@@ -22,7 +22,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose port default Spring Boot
-EXPOSE 8022
+EXPOSE 8080
 
 # Jalankan aplikasi
 CMD ["java", "-jar", "app.jar"]
