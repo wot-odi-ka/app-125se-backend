@@ -21,6 +21,8 @@ WORKDIR /app
 # Copy hasil build dari stage 1
 COPY --from=build /app/target/*.jar app.jar
 
+CMD echo "Connecting to $DATABASE_URL as $PGUSER" && java -jar app.jar
+
 # Expose port default Spring Boot
 EXPOSE 8080
 
