@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: postgres
-    password: admin
-    url: jdbc:postgresql://localhost:5432/cb125_se
+    password: tNJJAGzmccKZAWPOQQMwcubBxTGcDUQB
+    url: jdbc:postgresql://postgres:tNJJAGzmccKZAWPOQQMwcubBxTGcDUQB@app-125se-backend.railway.internal:5432/railway
     driver-class-name:
   jpa:
     show-sql: true
